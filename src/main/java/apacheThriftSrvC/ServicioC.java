@@ -21,6 +21,7 @@ public class ServicioC {
 		stock = StockDao.instance.getStock();
 	}
 	
+	
 	@RequestMapping(value = "/servicioC", method = RequestMethod.POST)
 	public @ResponseBody RespuestaNoThriftStock servicioC(@RequestBody RequestMessageStock requestMessageStock) {
 		
