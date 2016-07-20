@@ -49,12 +49,12 @@ public class ServicioC {
 	}
 	
 	/*******************************************
-	 * MAIN *
-	 * 
-	 * @param args
-	 *            *
-	 * @throws Exception
-	 *             *
+	 * MAIN                                    *
+	 *                                         *
+	 * @param args                             *
+	 *                                         *
+	 * @throws Exception                       *
+	 *                                         *
 	 ******************************************/
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ServicioC.class, args);
