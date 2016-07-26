@@ -1,8 +1,6 @@
 package apacheThriftSrvC;
 
-import java.util.HashMap;
 import java.util.Map;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,12 +23,12 @@ public class ServicioC {
 	@RequestMapping(value = "/servicioC", method = RequestMethod.POST)
 	public @ResponseBody RespuestaNoThriftStock servicioC(@RequestBody RequestMessageStock requestMessageStock) {
 		
-		// Variables
+		// Vars
 		long iniTime = System.currentTimeMillis();
 		RespuestaNoThriftStock respuestaNoThriftStock = new RespuestaNoThriftStock();
 		respuestaNoThriftStock.setStock("0");
 
-		// Obtenemos el mapa de prendas filtrado por el nombre y color solicitados para retornar el stock
+		// Obtain stock for prenda (name, color & size)
 		Map<String, Map<String,String>> stockPrenda = stock.get(requestMessageStock.getNombre());
 		if(stockPrenda!=null){
 			Map<String, String> stockColor = stockPrenda.get(requestMessageStock.getColor());
@@ -42,7 +40,6 @@ public class ServicioC {
 			}
 		}
 		
-		// Traza de fin del servicio
 		System.out.println("FIN ServicioC.  ts = {" + (System.currentTimeMillis() - iniTime) + "}");
 		
 		return respuestaNoThriftStock;
